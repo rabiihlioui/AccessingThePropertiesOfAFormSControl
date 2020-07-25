@@ -1,0 +1,47 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100"  style="width: 50%">
+            <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" #myForm="ngForm">
+                <span class="login100-form-title">
+                    Sign In
+                </span>
+
+                <div class="wrap-input100 validate-input m-b-16">
+                    <input 
+                        #myEmail="ngModel" 
+                        class="input100" 
+                        type="text" 
+                        name="email" 
+                        placeholder="Email" 
+                        email 
+                        ngModel 
+                        required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="alert alert-danger" style="margin-top: -16px" *ngIf="myEmail.invalid && myEmail.touched">{{invalidEmail}}</div>
+
+                <div class="wrap-input100 validate-input">
+                    <input 
+                        #myPwd="ngModel" 
+                        class="input100" 
+                        type="password" 
+                        name="pass"
+                        placeholder="Password" 
+                        minlength="6"
+                        ngModel 
+                        required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="alert alert-danger" *ngIf="myPwd.invalid && myPwd.touched">{{invalidPassword}}</div>
+
+                <div class="container-login100-form-btn flex-col-c p-t-50 p-b-40">
+                    <button class="login100-form-btn" [disabled]="myForm.invalid">
+                        Sign in
+                    </button>
+                    <div *ngIf="myForm.invalid" style="margin: 15px; color: red;">{{disabledBtn}}</div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
